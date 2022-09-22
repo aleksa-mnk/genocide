@@ -1,0 +1,91 @@
+@import "./normalize.scss";
+
+@mixin flex($direction, $align, $justify, $gap) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+    gap: $gap;
+}
+
+.main {
+    &__map {
+        background-image: url(./assets/img/map.png);
+        background-size: cover;
+        background-position: center;
+        box-shadow: inset 0px 2000px 4px rgba(21, 3, 3, 0.51);
+        height: 100vh;
+    }
+}
+
+.map {
+    @include flex(row, flex-end, space-between, 20px);
+
+    &__header {
+        height: 100vh;
+        width: 70px;
+        border-right: 3px solid #fff;
+        @include flex(column, center, space-between, 0px);
+    }
+
+    &__info {
+        @include flex(column, flex-end, space-between, 20px);
+        padding: 30px;
+    }
+
+    &__title {
+        font-family: 'Arimo', sans-serif;
+        font-family: 'Noto Serif Georgian', serif;
+        font-family: 'Oswald', sans-serif;
+        font-size: 90px;
+        line-height: 114px;
+        text-align: right;
+        color: #F1F1F1;
+        width: 900px;
+    }
+
+    &__about {
+        @include flex(column, center, center, 0px);
+        font-family: 'Arimo', sans-serif;
+        font-family: 'Noto Serif Georgian', serif;
+        font-family: 'Oswald', sans-serif;
+        font-size: 20px;
+        color: #fff;
+        border: 3px solid #fff;
+        border-radius: 4px;
+        height: 60px;
+        width: 250px;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__about::before {
+        position: absolute;
+        width: 247px;
+        height: 57px;
+        z-index: -1;
+        content: '';
+        background: #fff;
+        transition: transform .35s;
+    }
+    
+    &__about:hover {
+        color: #353535;
+    }
+    
+    &__about::before {
+        transform-origin: left top;
+        transform: scale(0, 1);
+    }
+    
+    &__about:hover::before {
+        transform-origin: right top;
+        transform: scale(1, 1);
+    }
+}
+
+.header {
+    padding: 12px 0px;
+}
+
+@import "./burger.scss"
