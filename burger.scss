@@ -1,6 +1,6 @@
 .burger {
     width: 64px;
-    height: 30px;
+    height: 70px;
     margin: 0 auto;
     @include flex(column, center, center, 6px);
 
@@ -68,13 +68,13 @@
 
     &__menu {
         position: absolute;
-        width: 100%;
+        width: 100vw;
         height: 100vh;
         left: 0px;
         top: 0px;
         margin: 0px;
         padding: 0px;
-        z-index: 2;
+        z-index: 2 !important;
         display: flex;
         align-items: center;
         justify-content: center;
