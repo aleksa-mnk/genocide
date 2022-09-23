@@ -1,0 +1,60 @@
+@import './mixins.scss';
+
+.mouse {
+    position: fixed;
+    transition: transform 0.1s;
+    pointer-events: none;
+    width: 300px;
+    height: 300px;
+    top: -150px;
+    left: -150px;
+    transition: opacity .45s cubic-bezier(.55, 0, .1, 1);
+    border: 2px solid #fff;
+    border-radius: 50%;
+    z-index: 30;
+    @include flex(row, center, center, 0px);
+    transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s;
+}
+
+.scrolltext {
+    margin: 0 auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    transition: 0.4s;
+}
+
+.hover {
+    height: 24px;
+    width: 24px;
+    top: -12px;
+    left: -12px;
+
+    .scrolltext {
+        font-size: 0px;
+    }
+}
+
+.city {
+    height: 120px;
+    width: 120px;
+    top: -60px;
+    left: -60px;
+
+    .scrolltext {
+        font-size: 0px;
+    }
+}
+
+.menu {
+    height: 60px;
+    width: 60px;
+    top: -30px;
+    left: -30px;
+
+    .scrolltext {
+        font-size: 0px;
+    }
+}

@@ -1,1 +1,1 @@
-# genocide
+# This template is deprecated

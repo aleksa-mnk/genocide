@@ -1,0 +1,76 @@
+.home {
+    @include flex(row, flex-end, end, 20px);
+
+    &__header {
+        position: fixed;
+        z-index: 4;
+        height: 100vh;
+        width: 70px;
+        left: 0px;
+        border-right: 3px solid #fff;
+        padding: 12px 0px;
+        transition: 0.2s;
+        @include flex(column, center, space-between, 0px);
+
+        &:hover {
+            backdrop-filter: blur(5px) saturate(120%);
+        }
+    }
+
+    &__info {
+        @include flex(column, flex-end, space-between, 20px);
+        padding: 30px;
+    }
+
+    &__title {
+        font-family: 'Arimo', sans-serif;
+        font-family: 'Noto Serif Georgian', serif;
+        font-family: 'Oswald', sans-serif;
+        font-size: 90px;
+        line-height: 114px;
+        text-align: right;
+        color: #F1F1F1;
+        width: 900px;
+        position: relative;
+        z-index: 3;
+    }
+
+    &__about {
+        @include flex(column, center, center, 0px);
+        font-family: 'Arimo', sans-serif;
+        font-family: 'Noto Serif Georgian', serif;
+        font-family: 'Oswald', sans-serif;
+        font-size: 20px;
+        color: #fff;
+        border: 3px solid #fff;
+        border-radius: 4px;
+        height: 60px;
+        width: 250px;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__about::before {
+        position: absolute;
+        width: 247px;
+        height: 57px;
+        z-index: -1;
+        content: '';
+        background: #fff;
+        transition: transform .35s;
+    }
+
+    &__about:hover {
+        color: #353535;
+    }
+
+    &__about::before {
+        transform-origin: left top;
+        transform: scale(0, 1);
+    }
+
+    &__about:hover::before {
+        transform-origin: right top;
+        transform: scale(1, 1);
+    }
+}
