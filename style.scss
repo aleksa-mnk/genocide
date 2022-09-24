@@ -1,0 +1,236 @@
+@import "./normalize.scss";
+
+@mixin flex($direction, $align, $justify, $gap) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+    gap: $gap;
+}
+
+body {
+    overflow-y: hidden;
+}
+
+section {
+    @include flex(column, center, center, 0px);
+    min-width: 100vw;
+    background-color: black;
+    margin: 0 auto;
+    position: relative;
+}
+
+.main {
+    position: relative;
+    display: flex;
+    scrollbar-width: none;
+    overflow-y: hidden;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+
+    &__home {
+        cursor: hidden;
+        background-image: url(./assets/img/bg-children.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        box-shadow: inset 0px 100vh 4px rgba(21, 3, 3, 0.51);
+        height: 100vh;
+        min-width: 100vw;
+    }
+
+    &__map {
+        min-width: 100vw;
+        height: 100vh;
+        text-align: center;
+        /* background-image: url(./assets/img/fire.jpg); */
+        /* background-size: cover; */
+        /* background-position: top center; */
+        /* backdrop-filter: blur(5px) saturate(120%); */
+        background-color: black;
+        /* background-attachment: fixed; */
+        /* box-shadow: inset 0px 100vh 4px rgba(21, 3, 3, 0.51); */
+    }
+}
+
+.mouse {
+    position: fixed;
+    transition: transform 0.1s;
+    pointer-events: none;
+    width: 300px;
+    height: 300px;
+    top: -150px;
+    left: -150px;
+    transition: opacity .45s cubic-bezier(.55, 0, .1, 1);
+    border: 2px solid #fff;
+    border-radius: 50%;
+    z-index: 30;
+    @include flex(row, center, center, 0px);
+    transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s;
+
+    .cityp {
+        font-size: 0px;
+        transition: 0.4s;
+    }
+}
+
+.scrolltext {
+    margin: 0 auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    transition: 0.4s;
+}
+
+.hover {
+    height: 24px;
+    width: 24px;
+    top: -12px;
+    left: -12px;
+
+    .scrolltext {
+        font-size: 0px;
+    }
+}
+
+.city {
+    height: 120px;
+    width: 120px;
+    top: -60px;
+    left: -60px;
+
+    .cityp {
+        font-size: 10px;
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: #fff;
+    }
+
+    .scrolltext {
+        font-size: 0px;
+    }
+}
+
+
+.home {
+    @include flex(row, flex-end, end, 20px);
+
+    &__header {
+        position: fixed;
+        z-index: 4;
+        height: 100vh;
+        width: 70px;
+        left: 0px;
+        border-right: 3px solid #fff;
+        padding: 12px 0px;
+        transition: 0.2s;
+        @include flex(column, center, space-between, 0px);
+
+        &:hover {
+            backdrop-filter: blur(5px) saturate(120%);
+        }
+    }
+
+    &__info {
+        @include flex(column, flex-end, space-between, 20px);
+        padding: 30px;
+    }
+
+    &__title {
+        font-family: 'Arimo', sans-serif;
+        font-family: 'Noto Serif Georgian', serif;
+        font-family: 'Oswald', sans-serif;
+        font-size: 90px;
+        line-height: 114px;
+        text-align: right;
+        color: #F1F1F1;
+        width: 900px;
+        position: relative;
+        z-index: 3;
+    }
+
+    &__about {
+        @include flex(column, center, center, 0px);
+        font-family: 'Arimo', sans-serif;
+        font-family: 'Noto Serif Georgian', serif;
+        font-family: 'Oswald', sans-serif;
+        font-size: 20px;
+        color: #fff;
+        border: 3px solid #fff;
+        border-radius: 4px;
+        height: 60px;
+        width: 250px;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__about::before {
+        position: absolute;
+        width: 247px;
+        height: 57px;
+        z-index: -1;
+        content: '';
+        background: #fff;
+        transition: transform .35s;
+    }
+
+    &__about:hover {
+        color: #353535;
+    }
+
+    &__about::before {
+        transform-origin: left top;
+        transform: scale(0, 1);
+    }
+
+    &__about:hover::before {
+        transform-origin: right top;
+        transform: scale(1, 1);
+    }
+}
+
+.map {
+    @include flex(column, center, center, 0px);
+    position: relative;
+
+    .city {
+        position: absolute;
+        display: block;
+        height: 5vw;
+        width: 5vw;
+        background-color: #ffffff6e;
+        border-radius: 50%;
+    }
+
+    &__borisov {
+        left: 63%;
+        top: 15.5%;
+    }
+
+    &__slutsk {
+        left: 44.5%;
+        top: 87%;
+    }
+
+    &__molodechno {
+        left: 30%;
+        top: 11%;
+    }
+
+    &__bg {
+        height: 100vh;
+        width: 100vw;
+    }
+}
+
+.center {
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: #ff0000;
+    top: 50%;
+}
+
+@import "./burger.scss"

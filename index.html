@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Патриот.by</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo&family=Noto+Serif+Georgian&family=Oswald:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="mouse">
+        <div class="ball"></div>
+        <span class="scrolltext">
+            Прокрутите для <br> навигации
+        </span>
+        <span class="cityp">Хочу узнать больше <br> (клац)</span>
+    </div>
+    <div class="main container">
+        <section class="main__home home">
+            <div class="home__header header" onmouseover="mouselog(event)" onmouseout="mouselog(event)">
+                <a href="#" class="home__logo"><img src="./assets/img/logo.png" alt="" width="60px"></a>
+                <nav class="header__burger burger" onmouseover="city(event)" onmouseout="city(event)">
+                    <input type="checkbox" class="burger__input" />
+                    <span class="burger__span"></span>
+                    <span class="burger__span"></span>
+                    <span class="burger__span"></span>
+                    <ul class="burger__menu paragraph-r">
+                        <a class="burger__item" href="#">
+                            <li>Штучку эту сделала, а толку ноль.</li>
+                        </a>
+                        <a class="burger__item" href="#">
+                            <li>Не успела доделать</li>
+                        </a>
+                        <a class="burger__item" href="#">
+                            <li>Контакты ниже</li>
+                        </a>
+                        <br /><br />
+                        <div class="burger__contacts">
+                            <a href="https://rs.school/js/" class="burger__rs">
+                                <img src="./assets/icons/logo.svg" alt="" height="25px" />
+                            </a>
+                            <a href="https://github.com/aleksa-mnk" class="burger__git paragraph-l">aleksa-mnk</a>
+                        </div>
+                    </ul>
+                </nav>
+                <a href="http://mgol.of.by/" class="home__mgol"><img class="git" src="./assets/img/mgol.png" alt="" width="60px"></a>
+            </div>
+            <div class="home__info">
+                <h1 class="home__title">Геноцид Минской области</h1>
+                <a href="#about" onmouseover="mouselog(event)" onmouseout="mouselog(event)" class="home__about">Узнать больше</a>
+            </div>
+        </section>
+        <section id="about" onmouseover="mouselog(event)" onmouseout="mouselog(event)" class="main__map map">
+            <img class="map__bg" src="./assets/img/map.png" alt="">
+            <span class="map__borisov city" onmouseover="city(event)" onmouseout="city(event)"></span>
+            <span class="map__slutsk city" onmouseover="city(event)" onmouseout="city(event)"></span>
+            <span class="map__molodechno city" onmouseover="city(event)" onmouseout="city(event)"></span>
+        </section>
+        <section class="main__video" onmouseover="mouselog(event)" onmouseout="mouselog(event)">
+            <video onclick="start()" id="videoPlayer" width="100%" >
+                <source src="./assets/video/Untitled.mp4" type="video/mp4">
+            </video>
+        </section>
+    </div>
+    <script>
+        let video;
+        window.onload = function() {
+            video = document.getElementById("videoPlayer");
+        };
+
+        function start() {
+            video.classList.toggle("paused");
+            
+            if([...video.classList].includes('paused')){
+                video.play();
+            }else {
+                video.pause();
+            }
+            return false;
+        }
+
+
+        document.addEventListener('mousemove', function(ev){
+            const mouse = document.querySelector('.mouse');
+            mouse.style.transform = 'translateY('+(ev.clientY)+'px)';
+            mouse.style.transform += 'translateX('+(ev.clientX)+'px)';
+        },false);
+
+        function mouselog(event) {
+            const mouse = document.querySelector('.mouse');
+            mouse.classList.toggle("hover");
+        }
+
+        // document.getElementsByTagName('span').addEventListener('mousemove', function(event){
+        //     const mouse = document.querySelector('.mouse');
+        //     mouse.classList.toggle("city");
+        // })
+        
+        function city(event) {
+            const mouse = document.querySelector('.mouse');
+            mouse.classList.toggle("city");
+            let a = [...event.fromElement.classList].includes('city') ? `${event.fromElement.classList}` : '';
+            if(a) {
+                // alert(a);
+            }
+        }
+
+        (function () {
+            function scrollHorizontally(e) {
+                e = window.event || e;
+                var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+                document.querySelector('.main').scrollLeft -= (delta * 40);
+                e.preventDefault();
+            }
+
+            if (document.body.addEventListener) {
+                document.body.addEventListener("mousewheel", scrollHorizontally, false);
+                document.body.addEventListener("DOMMouseScroll", scrollHorizontally, false);
+            } else {
+                document.body.attachEvent("onmousewheel", scrollHorizontally);
+            }
+        })();
+
+    </script>
+</body>
+
+</html>
