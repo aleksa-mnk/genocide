@@ -6,6 +6,7 @@ export class Cursor extends Component {
     super(parentNode, 'div', ['mouse']);
     new Component(this.element, 'div', ['ball']);
     new Component(this.element, 'span', ['scrolltext'], 'Прокрутите для\n навигации');
+    new Component(this.element, 'span', ['city-info']);
 
     document.addEventListener('mousemove', () => this.mousemove(event as MouseEvent), false);
   }

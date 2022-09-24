@@ -35,6 +35,23 @@
     .scrolltext {
         font-size: 0px;
     }
+
+    .city-info {
+        color: #fff;
+        font-size: 0;
+        transition: 0.2s;
+    }
+}
+
+.hoverSection {
+    height: 24px;
+    width: 24px;
+    top: -12px;
+    left: -12px;
+
+    .scrolltext {
+        font-size: 0px;
+    }
 }
 
 .city {
@@ -45,6 +62,13 @@
 
     .scrolltext {
         font-size: 0px;
+    }
+
+    .city-info {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 10px;
+        color: #fff;
+        text-align: center;
     }
 }
 

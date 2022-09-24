@@ -14,7 +14,6 @@ export class Home extends Component {
     title.element.addEventListener('mouseover', () => mini());
     title.element.addEventListener('mouseout', () => mini());
     document.body.addEventListener('mousewheel', () => this.scrollHorizontally(event), false);
-
   }
 
   private scrollHorizontally = (e: any) => {
