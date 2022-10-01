@@ -1,0 +1,98 @@
+@import './mixins.scss';
+
+.mouse {
+    position: fixed;
+    transition: transform 0.1s;
+    pointer-events: none;
+    width: 300px;
+    height: 300px;
+    top: -150px;
+    left: -150px;
+    transition: opacity .45s cubic-bezier(.55, 0, .1, 1);
+    border: 2px solid #fff;
+    border-radius: 50%;
+    z-index: 30;
+    @include flex(row, center, center, 0px);
+    transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s;
+
+    &.city {
+        background-image: url(https://minsk-region.gov.by/upload/iblock/48f/48fe181b70c9943bb0a9be1165e15fc3.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+        font-weight: 700;
+        box-shadow: inset 0px 2000px 4px rgba(21, 3, 3, 0.51);
+    }
+}
+
+.scrolltext {
+    margin: 0 auto;
+    font-family: 'Trirong', Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    font-size: 28px;
+    line-height: 150%;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    transition: 0.4s;
+}
+
+.hover {
+    height: 24px;
+    width: 24px;
+    top: -12px;
+    left: -12px;
+
+    .scrolltext {
+        font-size: 0px;
+    }
+
+    .city-info {
+        color: #fff;
+        font-size: 0;
+        transition: 0.2s;
+    }
+}
+
+.hoverSection {
+    height: 24px;
+    width: 24px;
+    top: -12px;
+    left: -12px;
+
+    .scrolltext {
+        font-size: 0px;
+    }
+}
+
+.city {
+    height: 180px;
+    width: 180px;
+    top: -90px;
+    left: -90px;
+    
+
+
+    .scrolltext {
+        font-size: 0px;
+    }
+
+    .city-info {
+        font-family: 'Trirong';
+        font-size: 20px;
+        font-weight: 400;
+        color: #fff;
+        text-align: center;
+    }
+}
+
+.menu {
+    height: 60px;
+    width: 60px;
+    top: -30px;
+    left: -30px;
+
+    .scrolltext {
+        font-size: 0px;
+    }
+}

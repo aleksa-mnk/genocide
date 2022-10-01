@@ -1,0 +1,583 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Trirong";
+  font-style: normal;
+  font-weight: 400;
+  src: url(./assets/fonts/helveticaneuecyr-ultralight3.ttf) format("woff2");
+}
+@font-face {
+  font-family: "Title";
+  font-style: normal;
+  font-weight: 400;
+  src: url(./assets/fonts/title.ttf) format("woff2");
+}
+/*Обнуление*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+  cursor: none !important;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+  cursor: none !important;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-y: hidden;
+  cursor: none;
+}
+
+/*--------------------*/
+.mouse {
+  position: fixed;
+  transition: transform 0.1s;
+  pointer-events: none;
+  width: 300px;
+  height: 300px;
+  top: -150px;
+  left: -150px;
+  transition: opacity 0.45s cubic-bezier(0.55, 0, 0.1, 1);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  z-index: 30;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  transition: width 0.4s, height 0.4s, top 0.4s, left 0.4s;
+}
+.mouse.city {
+  background-image: url(https://minsk-region.gov.by/upload/iblock/48f/48fe181b70c9943bb0a9be1165e15fc3.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  font-weight: 700;
+  box-shadow: inset 0px 2000px 4px rgba(21, 3, 3, 0.51);
+}
+
+.scrolltext {
+  margin: 0 auto;
+  font-family: "Trirong", Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  font-size: 28px;
+  line-height: 150%;
+  line-height: 30px;
+  text-align: center;
+  color: #fff;
+  transition: 0.4s;
+}
+
+.hover {
+  height: 24px;
+  width: 24px;
+  top: -12px;
+  left: -12px;
+}
+.hover .scrolltext {
+  font-size: 0px;
+}
+.hover .city-info {
+  color: #fff;
+  font-size: 0;
+  transition: 0.2s;
+}
+
+.hoverSection {
+  height: 24px;
+  width: 24px;
+  top: -12px;
+  left: -12px;
+}
+.hoverSection .scrolltext {
+  font-size: 0px;
+}
+
+.city {
+  height: 180px;
+  width: 180px;
+  top: -90px;
+  left: -90px;
+}
+.city .scrolltext {
+  font-size: 0px;
+}
+.city .city-info {
+  font-family: "Trirong";
+  font-size: 20px;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+}
+
+.menu {
+  height: 60px;
+  width: 60px;
+  top: -30px;
+  left: -30px;
+}
+.menu .scrolltext {
+  font-size: 0px;
+}
+
+.burger {
+  width: 64px;
+  height: 70px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.burger__input {
+  display: block;
+  width: 33px;
+  height: 22px;
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 5;
+  -webkit-touch-callout: none;
+}
+.burger__item {
+  text-decoration: none;
+  color: #a3a3a3;
+  transition: color 0.3s ease;
+  padding: 10px 0;
+  font-size: 22px;
+}
+.burger__contacts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.burger__span {
+  display: block;
+  width: 33px;
+  height: 2px;
+  position: relative;
+  background: #ffffff;
+  border-radius: 3px;
+  z-index: 4;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+.burger__input:hover ~ .burger__span {
+  background: #c9c9c9;
+  transition: 0.05s;
+}
+.burger__span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+.burger__input:checked ~ .burger__span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-4px, -2px);
+}
+.burger__input:checked ~ .burger__span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+.burger__input:checked ~ .burger__span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+.burger__menu {
+  font-family: "Trirong" !important;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  left: 0px;
+  top: 0px;
+  margin: 0px;
+  padding: 0px;
+  z-index: 2 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: rgba(12, 12, 12, 0.9764705882);
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  transform-origin: 0% 0%;
+  opacity: 0;
+  transition: 0.5s opacity, 0.5s visibility;
+  visibility: hidden;
+}
+.burger__input:checked ~ .burger__menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.header {
+  position: fixed;
+  z-index: 4;
+  height: 100vh;
+  width: 70px;
+  left: 0px;
+  border-right: 3px solid #fff;
+  padding: 12px 0px;
+  transition: 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0px;
+}
+.header:hover {
+  -webkit-backdrop-filter: blur(5px) saturate(120%);
+          backdrop-filter: blur(5px) saturate(120%);
+}
+.header__logo, .header__mgol {
+  display: block;
+  height: 60px;
+  width: 60px;
+  background-size: cover;
+}
+.header__logo {
+  background-image: url(./assets/img/logo.png);
+}
+.header__mgol {
+  background-image: url(./assets/img/mgol.png);
+}
+
+.home {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: end;
+  gap: 20px;
+}
+.home__header {
+  position: fixed;
+  z-index: 4;
+  height: 100vh;
+  width: 70px;
+  left: 0px;
+  border-right: 3px solid #fff;
+  padding: 12px 0px;
+  transition: 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0px;
+}
+.home__header:hover {
+  -webkit-backdrop-filter: blur(5px) saturate(120%);
+          backdrop-filter: blur(5px) saturate(120%);
+}
+.home__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 30px;
+}
+.home__title {
+  font-family: "Title";
+  font-weight: 600;
+  font-size: 72px;
+  letter-spacing: 0.05em;
+  line-height: 100px;
+  text-align: right;
+  color: #F1F1F1;
+  width: 900px;
+  position: relative;
+  z-index: 3;
+}
+.home__about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  font-family: "Trirong";
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  font-size: 20px;
+  color: #fff;
+  border: 3px solid #fff;
+  border-radius: 4px;
+  height: 60px;
+  width: 250px;
+  position: relative;
+  z-index: 1;
+}
+.home__about::before {
+  position: absolute;
+  width: 247px;
+  height: 57px;
+  z-index: -1;
+  content: "";
+  background: #fff;
+  transition: transform 0.35s;
+}
+.home__about:hover {
+  color: #353535;
+}
+.home__about::before {
+  transform-origin: left top;
+  transform: scale(0, 1);
+}
+.home__about:hover::before {
+  transform-origin: right top;
+  transform: scale(1, 1);
+}
+
+.map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  position: relative;
+}
+.map .city {
+  position: absolute;
+  display: block;
+  height: 5vw;
+  width: 5vw;
+  border-radius: 50%;
+}
+.map__borisov {
+  left: 63%;
+  top: 15.5%;
+}
+.map__slutsk {
+  left: 44.5%;
+  top: 87%;
+}
+.map__molodechno {
+  left: 30%;
+  top: 11%;
+}
+.map__nesvizh {
+  left: 27.1%;
+  top: 75.6%;
+}
+.map__iluyansk {
+  left: 38.7%;
+  top: 4.1%;
+}
+.map__radosh {
+  left: 38.3%;
+  top: 19.6%;
+}
+.map__ivenets {
+  left: 28.3%;
+  top: 35.3%;
+}
+.map__bg {
+  height: 100vh;
+  width: 100vw;
+}
+.map .visible {
+  background-color: rgba(255, 255, 255, 0.2156862745);
+}
+.map__about {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 60%;
+  width: 70%;
+  background-color: rgba(255, 255, 255, 0.5137254902);
+  margin: auto;
+  box-shadow: 0 0 25px #201504;
+  color: rgb(188, 188, 188);
+  font-family: "Trirong";
+  color: #000000;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0px;
+}
+.map__about.hidden {
+  display: none;
+}
+.map__hand {
+  font-size: 28px;
+  color: #483300;
+  margin: 0px 20px;
+}
+.map__text {
+  text-align: start;
+  margin: 20px 60px;
+  font-size: 30px;
+}
+.map__cont {
+  position: relative;
+  height: 90px;
+}
+.map__close {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: transparent;
+  border: 2px solid #483300;
+  color: #483300;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.map__visible {
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.5803921569);
+  color: #000;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+button {
+  position: absolute;
+  top: 30%;
+  left: 90%;
+}
+
+.info {
+  height: 100vh;
+  min-width: 100vw;
+  background-color: #000;
+  font-family: "Trirong";
+  color: #fff;
+}
+.info__bg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0px;
+  padding: 0px 90px;
+  height: 100%;
+  width: 100%;
+}
+.info__genocide {
+  font-size: 30px;
+  margin: 20px 30px;
+  max-width: 80%;
+}
+.info__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.info__item {
+  font-size: 20px;
+  max-width: 60%;
+  margin-left: 40px;
+  position: relative;
+  padding-left: 30px;
+}
+.info__item::before {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 25px;
+  top: 50%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  background-color: #9c9c9c;
+}
+
+body {
+  /* scroll-behavior: smooth; */
+}
+
+.main {
+  position: relative;
+  display: flex;
+  scrollbar-width: none;
+  overflow-y: hidden;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+}
+.main__home {
+  cursor: hidden;
+  background-image: url(./assets/img/bg-children.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: inset 0px 100vh 4px rgba(21, 3, 3, 0.51);
+  height: 100vh;
+  min-width: 100vw;
+}
+.main__map {
+  min-width: 100vw;
+  height: 100vh;
+  text-align: center;
+  background-color: black;
+}/*# sourceMappingURL=style.css.map */

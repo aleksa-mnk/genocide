@@ -1,0 +1,126 @@
+.map {
+    @include flex(column, center, center, 0px);
+    position: relative;
+
+    .city {
+        position: absolute;
+        display: block;
+        height: 5vw;
+        width: 5vw;
+        border-radius: 50%;
+    }
+
+    &__borisov {
+        left: 63%;
+        top: 15.5%;
+    }
+
+    &__slutsk {
+        left: 44.5%;
+        top: 87%;
+    }
+
+    &__molodechno {
+        left: 30%;
+        top: 11%;
+    }
+
+    &__nesvizh {
+        left: 27.1%;
+        top: 75.6%;
+    }
+
+    &__iluyansk {
+        left: 38.7%;
+        top: 4.1%;
+    }
+
+    &__radosh {
+        left: 38.3%;
+        top: 19.6%;
+    }
+
+    &__ivenets {
+        left: 28.3%;
+        top: 35.3%;
+    }
+
+    &__bg {
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .visible {
+        background-color: #ffffff37;
+    }
+
+    &__about {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 60%;
+        width: 70%;
+        background-color: #ffffff83;
+        margin: auto;
+        box-shadow:0 0 25px #201504;
+        color: rgb(188, 188, 188);
+        font-family: 'Trirong';
+        color: #000000;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        @include flex(column, center, space-between, 0px);
+
+        &.hidden {
+            display: none;
+        }
+    }
+
+    &__hand {
+        font-size: 28px;
+        color: #483300;
+        margin: 0px 20px;
+    }
+
+    &__text {
+        text-align: start;
+        margin: 20px 60px;
+        font-size: 30px;
+    }
+
+    &__cont {
+        position: relative;
+        height: 90px;
+    }
+
+    &__close {
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%, -50%);
+        margin: 0 auto;
+        padding: 10px 20px;
+        background-color: transparent;
+        border: 2px solid #483300;
+        color: #483300;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    &__visible {
+        padding: 10px 20px;
+        background-color: #ffffff94;
+        color: #000;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 16px;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    }
+}
+
+button {
+    position: absolute;
+    top: 30%;
+    left: 90%;
+}
